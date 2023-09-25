@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-print(f"{98} Battery street\n")
+print(f"{98} Battery street")
