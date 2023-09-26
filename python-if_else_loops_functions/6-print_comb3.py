@@ -7,3 +7,4 @@ def print_comb3():
                 if i < 8:
                     print(", ", end="")
     print("")
+
