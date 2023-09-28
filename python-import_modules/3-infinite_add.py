@@ -2,8 +2,10 @@
 import sys
 
 def add_arguments():
-    """Add all arguments."""
-    sum = 0
-    for i in range(1, len(sys.argv)):
-        sum += int(sys.argv[i])
-    print(sum)
+    args = sys.argv[1:]
+    total = sum(int(arg) for arg in args)
+    print(total)
+
+if __name__ == "__main__":
+    add_arguments()
+    
