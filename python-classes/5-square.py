@@ -1,39 +1,36 @@
 #!/usr/bin/python3
-"""Write a class Square that defines a square by: (based on 4-square.py)"""
+"""This module contains a square class"""
 
 
 class Square:
-    """Square class with a private attribute -
-    size.
-    """
+    """This class defines a square"""
 
     def __init__(self, size=0):
-        """Initializes the size variable as a private
-        instance artribute
-        """
-        self.size = size
+        """initializes the data"""
+        self.__size = size
 
     @property
     def size(self):
-        """Getter method to retrieve the value
-        of size
-        """
+        """Property"""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Setter method to protect and set the value
-        of size
-        """
+        """Size setter"""
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         elif value < 0:
-            raise TypeError("size must be >= 0")
+            raise ValueError("size must be >= 0")
         else:
             self.__size = value
 
     def area(self):
-        """Public instance method that returns
-        the current square area
-        """
+        """generates the area"""
         return self.__size ** 2
+
+    def my_print(self):
+        """Print square"""
+        if self.__size == 0:
+            print()
+        else:
+            for height in range(self.__size):
