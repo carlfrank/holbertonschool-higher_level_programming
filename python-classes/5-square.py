@@ -3,34 +3,48 @@
 
 
 class Square:
-    """This class defines a square"""
+    """Class to represent a square."""
 
     def __init__(self, size=0):
-        """initializes the data"""
-        self.__size = size
+        """
+        Initializes the Square instance with the provided size.
+
+        Parameters:
+        - size (int): The size of the square's sides.
+        """
+        self.size = size
 
     @property
     def size(self):
-        """Property"""
+        """Gets the size of the square."""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Size setter"""
+        """
+        Sets the size of the square with validations.
+
+        Parameters:
+        - value (int): The new size of the square's sides.
+
+        Raises:
+        - TypeError: If the provided size is not an integer.
+        - ValueError: If the provided size is negative.
+        """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         elif value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
 
     def area(self):
-        """generates the area"""
+        """Calculates and returns the area of the square."""
         return self.__size ** 2
 
     def my_print(self):
-        """Print square"""
+        """Prints the square using the character # or"""
         if self.__size == 0:
             print()
         else:
-            for height in range(self.__size):
+            for _ in range(self.__size):
+                print("#" * self.__size)
