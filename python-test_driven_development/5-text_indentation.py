@@ -1,20 +1,22 @@
 #!/usr/bin/python3
-"""This module iterates in a string and finds special characters
-prints them and creates two new lines"""
+"""This module will have a function that will print a text"""
 
 
 def text_indentation(text):
-    """This fucntion iterates in a string if specified characters
-    are found they will get printed and then two new lines
-    text (str): text must be type str"""
-
-    if type(text) != str:
-        raise TypeError("text must be a string")
-
-    for i in text:
-        if i == "." or i == "?" or i == ":":
-            print(f"{i}", end="")
-            print("")
-            print("")
+    """
+    Function that prints a text
+    with 2 new lines after each
+    of the chracters above.
+    First we check that what its
+    passed is a str, then proceed to check and print.
+    """
+    if type(text) is not str:
+        raise TypeError('text must be a string')
+    for let in range(len(text)):
+        if text[let] == '.' or text[let] == '?' or text[let] == ':':
+            print(text[let])
+            print()
+        elif text[let] == " " and text[let - 1] in ['.', '?', ':']:
+            continue
         else:
-            print(f"{i}", end="")
+            print(text[let], end="")
