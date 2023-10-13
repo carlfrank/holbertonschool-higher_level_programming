@@ -1,23 +1,15 @@
 #!/usr/bin/python3
-"""
-    This module will have a function that will print a text"""
+"""This module will have a function that will print a text"""
 
 
 def text_indentation(text):
-    """
-    Function that prints a text
-    with 2 new lines after each
-    of the chracters above.
-    First we check that what its
-    passed is a str, then proceed to check and print.
-    """
-    if type(text) is not str:
-        raise TypeError('text must be a string')
-    for let in range(len(text)):
-        if text[let] == '.' or text[let] == '?' or text[let] == ':':
-            print(text[let])
-            print()
-        elif text[let] == " " and text[let - 1] in ['.', '?', ':']:
-            continue
-        else:
-            print(text[let], end="")
+    """Print a text, adding 2 new lines after each ., ? and :."""
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+
+    special_characters = ['.', '?', ':']
+    for char in special_characters:
+        text = text.replace(char, char + '\n\n')
+    lines = text.split('\n')
+    for line in lines:
+        print(line.strip())
