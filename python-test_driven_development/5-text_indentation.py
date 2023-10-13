@@ -3,15 +3,17 @@
 
 
 def text_indentation(text):
-    """Prints a text, adding 2 new lines after each ., ? and :."""
+    """Indent text."""
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    i = 0
-    while i < len(text):
-        print(text[i], end="")
-        if text[i] in ".?:":
-            print("\n")
-            if i + 1 < len(text) and text[i + 1] == ' ':
-                i += 1
-        i += 1
+    special_chars = ['.', '?', ':']
+    new_text = ""
+    for char in text:
+        new_text += char
+        if char in special_chars:
+            new_text += '\n\n'
+
+    lines = new_text.split('\n')
+    for line in lines:
+        print(line.strip())
