@@ -2,9 +2,6 @@
 """Module to create a class from JSON file"""
 
 
-import json
-
-
 def class_to_json(obj):
     """
     Returns the dictionary description with simple data structure
