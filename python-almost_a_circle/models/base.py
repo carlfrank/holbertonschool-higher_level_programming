@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-This module contains the class Base, 
-which serves the purpose of managing 
+This module contains the class Base,
+which serves the purpose of managing
 the id attribute in all your future classes,
 thus preventing the duplication of code.
 """
