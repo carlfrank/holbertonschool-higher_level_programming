@@ -29,4 +29,4 @@ class TestBase(unittest.TestCase):
                                         'models/rectangle.py',
                                         'models/square.py'])
         self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
+                    "Found code style errors (and warnings).")
