@@ -2,6 +2,10 @@
 """defines Base class"""
 
 
+from os import path
+import json
+
+
 class Base():
     """manages id attribute in all future classes"""
     __nb_objects = 0
