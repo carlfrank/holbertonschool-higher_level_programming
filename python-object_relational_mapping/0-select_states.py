@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Displays all states from db
+Displays all states from db.
 """
 
 import MySQLdb
