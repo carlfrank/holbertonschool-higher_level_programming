@@ -21,7 +21,7 @@ if __name__ == '__main__':
     engine = create_engine(
         'mysql+mysqldb://{}:{}@localhost:3306/{}'
         .format(username, password, db))
-    # custom session object class from db engine
+    # custom session object class from db engine.
     Session = sessionmaker(bind=engine)
     # instance
     session = Session()
