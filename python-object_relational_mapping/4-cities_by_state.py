@@ -8,7 +8,7 @@ import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    """Function that lists all cities database hbtn_0e_4_usa"""
+    """Function that lists all cities database. hbtn_0e_4_usa"""
 
     cnx = MySQLdb.connect(
         host="localhost",
