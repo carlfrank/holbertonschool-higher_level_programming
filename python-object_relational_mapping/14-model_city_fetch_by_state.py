@@ -1,33 +1,30 @@
 #!/usr/bin/python3
 """
-Prints all cities objects from db
+Module to list all City objects from database hbtn_0e_14_usa.
 """
 
 
-import sys
+from model_city import Base, City
 from model_state import Base, State
-from model_city import City
-from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+import sys
 
 
-if __name__ == '__main__':
-    """sql server"""
-    # argument vector vars
-    username = sys.argv[1]
-    password = sys.argv[2]
-    db = sys.argv[3]
-    # database url
+if __name__ == "__main__":
+    """Function that lists all City objects from database hbtn_0e_14_usa."""
+
     engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost:3306/{}'
-        .format(username, password, db))
-    # custom session object class from db engine.
+        'mysql+mysqldb://{}:{}@localhost/{}'.
+        format(sys.argv[1], sys.argv[2], sys.argv[3]),
+        pool_pre_ping=True)
+
     Session = sessionmaker(bind=engine)
-    # instance
-    session = Session()
-    # table query
-    cities = session.query(State.name, City.id, City.name).join(
-        City, City.state_id == State.id).order_by(City.id)
-    # print state, city name & id
-    for city in cities:
-        print("{}: ({}) {}".format(city[0], city[1], city[2]))
+
+    my_session = Session()
+
+    for city, state in my_session.query(City, State).\
+            filter(City.state_id == State.id).order_by(City.id).all():
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
+
+    my_session.close()
