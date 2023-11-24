@@ -1,19 +1,21 @@
 #!/usr/bin/python3
 """
-Class definition of a City that inherits from Base
+File that contains the class definition of a
+State and an instance
 """
-from sqlalchemy import Integer, String, Column
-from model_state import Base
+
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String, ForeignKey
+
+
+Base = declarative_base()
 
 
 class City(Base):
-    """
-    City class for usage with SQLAlchemy inherited from declarative_base() in State class
-    """
+    """ State class definition """
     __tablename__ = 'cities'
 
-    id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
-
+    id = Column(Integer, autoincrement=True, unique=True,
+                nullable=False, primary_key=True)
     name = Column(String(128), nullable=False)
-
-    state_id = Column(Integer, ForeignKey("state.id"), nullable=False)
+    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
