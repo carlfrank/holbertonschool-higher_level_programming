@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Displays all states from db
+Displays all states from db with name starting with 'N'
 """
 import MySQLdb
 import sys
@@ -14,7 +14,8 @@ if __name__ == '__main__':
         port=3306
     )
     cur = db.cursor()
-    cur.execute("SELECT * FROM states;")
+    cur.execute(
+        "SELECT * FROM states WHERE NAME LIKE 'N%';")
     states = cur.fetchall()
 
     for state in states:
